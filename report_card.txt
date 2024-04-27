@@ -1,0 +1,5 @@
+Subject		MM	
+
+Science		88.0	A
+Maths		90.0	A+
+Computer		88.0	A

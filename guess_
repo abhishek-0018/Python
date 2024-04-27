@@ -1,0 +1,32 @@
+import random
+word_list=["Naruto","Luffy","Ichigo","Goku"]
+chosen_word=random.choice(word_list).lower()
+c=0
+attempts=0
+lifes=6
+word_list=["_"]*len(chosen_word)
+while c!=len(chosen_word):
+    letter=str(input("Please enter a letter you think is present in word = "))
+    attempts+=1
+    if letter in word_list:
+        if lifes == 1:
+            print("Game over. No more lifes are left.")
+            exit()
+        lifes-=1
+        print(f"You can't choose same letter again and again. So, it will cost you one life.\nNow you have only {lifes} left.")
+
+    elif letter in chosen_word:
+        c+=1
+        print("Yes, Entered letter is present in word")
+        for i in range(0,len(chosen_word)):
+            if chosen_word[i]==letter:
+                word_list[i]=letter
+        print(f"You still have {lifes} lifes left.")
+    else:
+        if lifes == 1:
+            print("Game over. No more lifes are left.")
+            exit()
+        lifes-=1
+        print(f"No, entered letter is not present in word.\nNow you have only {lifes} left.")
+    print(f"Present result is {word_list}")
+print(f"You took {attempts} attempts to guess the word.")
